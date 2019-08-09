@@ -46,6 +46,7 @@
       <!-- start: Header -->
 
         <nav class="navbar navbar-default header navbar-fixed-top">
+          
           <div class="col-md-12 nav-wrapper">
             <div class="navbar-header" style="width:100%;">
               <!-- <div class="opener-left-menu is-open">
@@ -53,29 +54,35 @@
                 <span class="middle"></span>
                 <span class="bottom"></span>
               </div> -->
-                <a href="index.html" class="navbar-brand"> 
+                <a href="{% url 'index' %}" class="navbar-brand"> 
                  <b>MY_TURN</b>
                 </a>
-
+                
               <ul class="nav navbar-nav search-nav">
+                
                 <li>
                    <div class="search">
                     <form method="POST" action="{% url 'search' %}">
                             {% csrf_token %}
-
+                            
                             <span class="fa fa-search icon-search" style="font-size:23px;"></span>
                             <div class="form-group form-animate-text">
                                 <input type="text" class="form-text" name="search" required>
                                 <span class="bar"></span>
                                 <label class="label-search">Type anywhere to <b>Search</b> </label>
                             </div>
-                        </form>
+                          
+                    </form>
                   </div>
+                
                 </li>
-              </ul>
               
+              </ul>
             </div>
-          </div>
+            </div>
+          
+        </div>
+      
         </nav>
         {% block content %}
         {% endblock %}
