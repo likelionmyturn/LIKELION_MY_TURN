@@ -14,8 +14,9 @@ def index(request):
 def main(request):
     return render(request,'main.html')
 
-def wait(request):
-    return render(request,'wait.html')
+def wait(request, store_id):
+    store_detail = get_object_or_404(Store, pk=store_id)
+    return render(request, 'wait.html', {'store': store_detail})
 
 def store(request):
     stores = Store.objects
