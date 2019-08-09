@@ -1,0 +1,20 @@
+<form action="{% url 'create'%}">
+
+    {% csrf_token %}
+    Storename:
+    <br>
+    <input name="storename"  type="text" value="">
+    <br>
+    locate:
+    <br>
+    <input name="location"  type="text" value="">
+    <br>
+    time:
+    <br>
+    <input name="cookingtime"  type="text" value="">
+    <br>
+    <br>
+    <input class="btn btn-primary" type="submit" value="Sign Up!">
+    </form>
+    <br>
+</form>
