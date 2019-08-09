@@ -25,4 +25,5 @@ urlpatterns = [
     path('search/',store.views.search, name="search"),
     path('wait/',store.views.wait, name="wait"),
     path('phone/', store.views.phone, name="phone"),
+    path('tables/',store.views.tables, name="tables"),
 ]

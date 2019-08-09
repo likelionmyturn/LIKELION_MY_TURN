@@ -40,3 +40,7 @@ def search(request):
 
 def phone(request):
     return render(request, 'phone.html')
+
+def tables(request):
+    stores =Store.objects.all()
+    return render(request,'tables.html',{'stores':stores})
