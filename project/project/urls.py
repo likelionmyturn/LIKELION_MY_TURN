@@ -25,5 +25,10 @@ urlpatterns = [
     path('search/',store.views.search, name="search"),
     path('wait/',store.views.wait, name="wait"),
     path('phone/', store.views.phone, name="phone"),
-    path('tables/',store.views.tables, name="tables"),
+    path('signup/', store.views.signup, name='signup'),
+    path('login/', store.views.login, name='login'),
+    path('logout/', store.views.logout, name='logout'),
+    path('store/new/', store.views.new, name='new'),
+    path('store/create/', store.views.create, name='create'),
+    
 ]
