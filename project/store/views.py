@@ -16,7 +16,17 @@ def main(request):
 
 def wait(request, store_id):
     store_detail = get_object_or_404(Store, pk=store_id)
-    return render(request, 'wait.html', {'store': store_detail})
+    clients =  Client.objects
+    clientph = Client.objects.values('phonenum')
+    aa=0
+    for i in clientph.values():
+        aa+=1
+        i
+
+ 
+    return render(request, 'wait.html', {'store': store_detail,'clients':clients,'num':i,'aa':aa,'clientph':clientph})
+
+
 
 def store(request):
     stores = Store.objects
@@ -43,6 +53,13 @@ def search(request):
 
 def phone(request):
     return render(request, 'phone.html')
+
+def clientnew(request):
+    client = Client()
+    client.phonenum = request.POST['phonenum']
+    client.save()
+
+    return redirect('/store')
 
 
 def signup(request):

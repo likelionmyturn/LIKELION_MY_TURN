@@ -18,5 +18,4 @@ class Client(models.Model):
     my_num = models.IntegerField(default = 0)
     phonenum = models.IntegerField(default = 0)
 
-    def __str__(self):
-        return self.my_num
+  

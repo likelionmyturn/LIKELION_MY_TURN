@@ -1,11 +1,11 @@
 <h1>휴대폰 번호를 입력해주세요</h1>
 
-<form action="{% url 'phone'%}">
+<form action="{% url 'clientnew'%}" method="POST">{% csrf_token %}
 
     {% csrf_token %}
     전화번호:
     <br>
-    <input name="phone"  type="number" value="">
+    <input  type="number" name="phonenum">
     <br>
     <br>
     <input class="btn btn-primary" type="submit" value="예약하기!">

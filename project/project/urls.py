@@ -20,11 +20,11 @@ import store.views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',store.views.index, name="index"),
-    #path('',store.views.main, name="main"),
     path('store/',store.views.store, name="store"),
     path('search/',store.views.search, name="search"),
     path('wait/<int:store_id>/',store.views.wait, name="wait"),
     path('phone/', store.views.phone, name="phone"),
+    path('clientnew/', store.views.clientnew, name="clientnew"),
     path('signup/', store.views.signup, name='signup'),
     path('login/', store.views.login, name='login'),
     path('logout/', store.views.logout, name='logout'),

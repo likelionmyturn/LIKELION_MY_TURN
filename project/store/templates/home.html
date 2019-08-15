@@ -9,7 +9,7 @@
     <div class="card-cloumns" id="allpost">
         {% for store in posts %}
         <div class="card border-secondary mb-3">
-            <div class="card-header bg-transparent border-secondary"><a href="{% url 'wait'%}">{{store.title}}</a></div>
+            <div class="card-header bg-transparent border-secondary"><a href="{% url 'wait' store.id%}">{{store.title}}</a></div>
             <div class="card-body">
                 <h5 class="text-mute postcard-datetime">{{store.author}} - {{store.pup_date}}</h5>
                 <p class="card-text">{{store.body}}</p>
