@@ -47,7 +47,7 @@
     }
   </style>
   <script language="javascript">
-    function showPopup() { window.open("{% url 'phone' %}", "a", "width=500, height=500, left=100, top=50"); }
+    function showPopup() { window.open("{% url 'phone' store.id %}", "a", "width=500, height=500, left=100, top=50"); }
   </script>
 </head>
 
@@ -106,16 +106,17 @@
                     {% else %}
                   <ul>
                       <li class="nav-item">
-                          <a class="nav-item nav-link" href="{% url 'signup' %}">Signup</a>
+                          <a class="nav-item nav-link" style="display: inline;" href="{% url 'signup' %}">Signup</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+                          <a class="nav-item nav-link" style="display: inline;" href="{% url 'login' %}">Login</a>
                         </li>
+                        <li style="display: inline;"><a href="#" class="opener-right-menu"><span class="fa fa-coffee"></span></a></li>
                   </ul>
                 </li>
               </ul>
             </li>
-            <li ><a href="#" class="opener-right-menu"><span class="fa fa-coffee"></span></a></li>
+            
           </ul>
           {% endif %}
           <!-- {% if user.is_authenticated %}

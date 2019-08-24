@@ -24,11 +24,11 @@ urlpatterns = [
     path('store/',store.views.store, name="store"),
     path('search/',store.views.search, name="search"),
     path('wait/<int:store_id>/',store.views.wait, name="wait"),
-    path('phone/', store.views.phone, name="phone"),
+    path('phone/<int:store_id>', store.views.phone, name="phone"),
     path('signup/', store.views.signup, name='signup'),
     path('login/', store.views.login, name='login'),
     path('logout/', store.views.logout, name='logout'),
     path('store/new/', store.views.new, name='new'),
-    path('store/create/', store.views.create, name='create'),
+    path('store/create_client/', store.views.create_client, name='create_client'),
     
 ]

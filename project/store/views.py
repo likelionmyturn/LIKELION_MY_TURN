@@ -41,7 +41,7 @@ def search(request):
     else:
         return HttpResponseNotFound("없는 페이지 입니다.")
 
-def phone(request):
+def phone(request, store_id):
     return render(request, 'phone.html')
 
 
@@ -78,12 +78,7 @@ def logout(request):
 def new(request):
     return render(request, 'new.html')
 
-def create(request):
-    sto = Store()
-    sto.title = request.GET['storename']
-    sto.body = request.GET['location']
-    sto.time = request.GET['cookingtime']
-    sto.author = request.user
-    sto.pup_date = timezone.datetime.now()
-    sto.save()
+def create_client(request):
+    client = Client()
+    
     return redirect('/store/')

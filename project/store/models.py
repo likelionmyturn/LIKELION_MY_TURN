@@ -14,9 +14,10 @@ class Store(models.Model):
         return self.title
 
 class Client(models.Model):
-    store_num = models.IntegerField(default = 0)
+    store = models.ForeignKey(Store, on_delete=models.CASCADE)
+    # store_num = models.IntegerField(default = 0)
     my_num = models.IntegerField(default = 0)
-    phonenum = models.IntegerField(default = 0)
+    phonenum = models.CharField(max_length=10)
 
     def __str__(self):
         return self.my_num
