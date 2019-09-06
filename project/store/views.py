@@ -16,7 +16,12 @@ def main(request):
 
 def wait(request, store_id):
     store_detail = get_object_or_404(Store, pk=store_id)
-    return render(request, 'wait.html', {'store': store_detail})
+    store = Store.objects.get(pk=store_id)
+    client = Client.objects.filter(store_id=store.id)
+    context = {}
+    context['store'] = store_detail
+    context['client'] = client
+    return render(request, 'wait.html', context)
 
 def store(request):
     stores = Store.objects
@@ -42,7 +47,9 @@ def search(request):
         return HttpResponseNotFound("없는 페이지 입니다.")
 
 def phone(request, store_id):
-    return render(request, 'phone.html')
+    phone_detail = get_object_or_404(Store, pk=store_id)
+    print(store_id, 'store idddddddddddddd')
+    return render(request, 'phone.html', {'phone': phone_detail})
 
 
 def signup(request):
@@ -78,7 +85,34 @@ def logout(request):
 def new(request):
     return render(request, 'new.html')
 
-def create_client(request):
-    client = Client()
+def create_client(request, store_id):
     
-    return redirect('/store/')
+    store = Store.objects.get(pk=store_id)
+    
+    
+    store.num += 1
+    store.recent_num += 1
+    print(type(store),'storeeeeeeeee')
+    mynum = store.recent_num
+    phone_num = request.POST['phone']
+    
+    
+    
+    client = Client(store_id=store.id, phonenum=phone_num, my_num=mynum)
+    client.save()
+    store.save()
+
+    context = {}
+    context['store'] = store
+    context['client'] = Client.objects.filter(store_id=store.id)
+    print(len(context['client']), 'lennnnnnnnnnnnnnnnnn')
+    return redirect('/wait/' + str(store.id))
+
+# def confirm(request, client_id):
+#     client = Client.objects.all()
+#     phoneNum = request.POST['phone']
+#     for c in client:
+#         if phoneNum==c.phonenum:
+
+# def cancel(request):
+#     Client.objects.

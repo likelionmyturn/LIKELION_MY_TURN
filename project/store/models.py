@@ -8,7 +8,9 @@ class Store(models.Model):
     locate = models.IntegerField(default=0)
     author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True) 
     num = models.IntegerField(default = 0)
+    recent_num = models.IntegerField(default=0)
     time = models.IntegerField(default = 0)
+
 
     def __str__(self):
         return self.title
@@ -20,4 +22,4 @@ class Client(models.Model):
     phonenum = models.CharField(max_length=10)
 
     def __str__(self):
-        return self.my_num
+        return self.phonenum
